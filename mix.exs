@@ -26,7 +26,7 @@ defmodule RepeatexApi.Mixfile do
     [
       {:phoenix, github: "phoenixframework/phoenix"},
       {:cowboy, "~> 1.0"},
-      {:repeatex, path: "../repeatex"}
+      {:repeatex, github: "rcdilorenzo/repeatex"}
     ]
   end
 end
