@@ -1,0 +1,23 @@
+{
+  "name": "repeatex_api",
+  "version": "0.0.0",
+  "homepage": "https://github.com/rcdilorenzo/repeatex_api",
+  "authors": [
+    "Christian Di Lorenzo <rcdilorenzo@me.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "priv/static/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.3.10",
+    "jquery": "~2.1.3",
+    "nprogress": "~0.1.6"
+  }
+}

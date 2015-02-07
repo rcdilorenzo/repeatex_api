@@ -1,0 +1,35 @@
+<div class="white-block">
+  <div class="page-wrap">
+    <nav>
+      <a ng-click="goToDemo()">Demo</a>
+      <a href="https://github.com/rcdilorenzo/repeatex">GitHub</a>
+    </nav>
+    <br>
+    <br>
+    <img src="images/logo.svg">
+    <h1>Repeatex</h1>
+    <i>Natural language parsing for repeating dates</i>
+  </div>
+</div>
+<div class="content">
+  <div class="page-wrap">
+    <h2>Examples</h2>
+    <div class="quote"><p><span>on wednesday every week</span></p></div>
+    <div class="quote"><p><span>every other monday</span></p></div>
+    <div class="quote"><p><span>mon-sat every week</span></p></div>
+    <div class="quote"><p><span>every 3rd of the month</span></p></div>
+    <div class="quote"><p><span>1st and 3rd every 2 months</span></p></div>
+    <div class="quote"><p><span>on the 3rd tuesday of every month</span></p></div>
+    <br>
+  </div>
+</div>
+<div class="white-block" >
+  <div class="page-wrap" id="demo">
+    <h2>Try it!</h2>
+    <input class="large" type="text" ng-model="description" placeholder="on wednesday every week" ng-model-options="{debounce: 300}" ng-change="updateOutput()"/>
+    <br>
+    <i>Is the text above not parsing correctly? Please <a ng-href="https://github.com/rcdilorenzo/repeatex/issues/new?title={{issueTitle}}&body={{issueBody}}">click here</a> to report this as an issue.</i>
+    <br>
+    <pre>{{ output | json }}</pre>
+  </div>
+</div>

@@ -3,8 +3,12 @@ defmodule RepeatexApi.MainController do
 
   plug :action
 
-  def show(conn, %{"description" => description}) do
+  def api(conn, %{"description" => description}) do
     json conn, Repeatex.Parser.parse description
+  end
+
+  def show(conn, _) do
+    render conn, "index.html"
   end
 end
 
