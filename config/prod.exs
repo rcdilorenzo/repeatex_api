@@ -13,7 +13,7 @@ use Mix.Config
 
 config :repeatex_api, RepeatexApi.Endpoint,
   url: [host: "example.com"],
-  http: [port: System.get_env("PORT") || 4000],
+  http: [port: System.get_env("PORT") || 80],
   server: true,
   secret_key_base: "Xzo0DPDPJL2XoMRZVj5SD+Ad5U9cqvk9bqZ2uBBG/YPqCKJXh3X1QOPVGyI/Z7y5"
 
