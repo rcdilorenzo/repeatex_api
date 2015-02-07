@@ -13,11 +13,12 @@ use Mix.Config
 
 config :repeatex_api, RepeatexApi.Endpoint,
   url: [host: "example.com"],
-  http: [port: System.get_env("PORT")],
-  secret_key_base: "04kGJvQAd+lZYU4yyZmDQbzwPDAJBdI6JhhGOgcLtBMp3uddG+gkVtJ+qAwcMVSs"
+  http: [port: System.get_env("PORT") || 4000],
+  server: true,
+  secret_key_base: "Xzo0DPDPJL2XoMRZVj5SD+Ad5U9cqvk9bqZ2uBBG/YPqCKJXh3X1QOPVGyI/Z7y5"
 
-# Do not pring debug messages in production
-config :logger, level: :info
+config :logger,
+  level: :info
 
 # ## Using releases
 #

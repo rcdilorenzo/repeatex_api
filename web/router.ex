@@ -18,5 +18,4 @@ defmodule RepeatexApi.Router do
 
     get "/", MainController, :show
   end
-
 end

@@ -8,7 +8,7 @@ use Mix.Config
 # Configures the endpoint
 config :repeatex_api, RepeatexApi.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "04kGJvQAd+lZYU4yyZmDQbzwPDAJBdI6JhhGOgcLtBMp3uddG+gkVtJ+qAwcMVSs",
+  secret_key_base: "Xzo0DPDPJL2XoMRZVj5SD+Ad5U9cqvk9bqZ2uBBG/YPqCKJXh3X1QOPVGyI/Z7y5",
   debug_errors: false
 
 # Configures Elixir's Logger

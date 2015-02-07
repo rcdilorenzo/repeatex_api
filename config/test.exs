@@ -3,5 +3,5 @@ use Mix.Config
 config :repeatex_api, RepeatexApi.Endpoint,
   http: [port: System.get_env("PORT") || 4001]
 
-# Print only warnings and errors during test
-config :logger, level: :warn
+# Enables code reloading for test
+config :phoenix, :code_reloader, true

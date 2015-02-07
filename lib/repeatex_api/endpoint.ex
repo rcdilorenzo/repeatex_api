@@ -1,10 +1,8 @@
 defmodule RepeatexApi.Endpoint do
   use Phoenix.Endpoint, otp_app: :repeatex_api
 
-  # Serve at "/" the given assets from "priv/static" directory
   plug Plug.Static,
-    at: "/", from: :repeatex_api,
-    only: ~w(css images js favicon.ico robots.txt)
+    at: "/", from: :repeatex_api
 
   plug Plug.Logger
 
@@ -23,8 +21,8 @@ defmodule RepeatexApi.Endpoint do
   plug Plug.Session,
     store: :cookie,
     key: "_repeatex_api_key",
-    signing_salt: "dTslU4UY",
-    encryption_salt: "cvvTZ6H7"
+    signing_salt: "WxpqzGPC",
+    encryption_salt: "WZVeOosX"
 
   plug :router, RepeatexApi.Router
 end

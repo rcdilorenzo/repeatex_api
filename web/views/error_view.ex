@@ -9,6 +9,7 @@ defmodule RepeatexApi.ErrorView do
     "Server internal error - 500"
   end
 
+  # Render all other templates as 500
   def render(_, assigns) do
     render "500.html", assigns
   end

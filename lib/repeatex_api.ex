@@ -8,7 +8,7 @@ defmodule RepeatexApi do
 
     children = [
       # Start the endpoint when the application starts
-      supervisor(RepeatexApi.Endpoint, []),
+      worker(RepeatexApi.Endpoint, []),
 
       # Here you could define other workers and supervisors as children
       # worker(RepeatexApi.Worker, [arg1, arg2, arg3]),
