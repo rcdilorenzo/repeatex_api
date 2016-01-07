@@ -1,3 +1,3 @@
 defmodule RepeatexApi.LayoutView do
-  use RepeatexApi.View
+  use RepeatexApi.Web, :view
 end

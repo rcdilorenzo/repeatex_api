@@ -1,10 +1,8 @@
 defmodule RepeatexApi.MainController do
   use Phoenix.Controller
 
-  plug :action
-
   def api(conn, %{"description" => description}) do
-    json conn, Repeatex.Parser.parse description
+    json conn, Repeatex.parse description
   end
 
   def show(conn, _) do
@@ -13,11 +11,7 @@ defmodule RepeatexApi.MainController do
 end
 
 defimpl Poison.Encoder, for: Repeatex.Repeat do
-  def encode(%Repeatex.Repeat{days: days} = map, _) do
-    days = days |> Enum.map fn
-      ({int, atom}) -> Map.put(%{}, atom, int)
-      (any) -> any
-    end
-    map |> Map.from_struct |> Map.put(:days, days) |> Poison.encode!
+  def encode(map, _) do
+    map |> Map.from_struct |> Poison.encode!
   end
 end

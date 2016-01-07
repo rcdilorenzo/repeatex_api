@@ -15,7 +15,7 @@ defmodule RepeatexApi.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [mod: {RepeatexApi, []},
-     applications: [:phoenix, :cowboy, :logger, :repeatex, :poison]]
+     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :repeatex, :poison]]
   end
 
   # Specifies your project dependencies
@@ -23,8 +23,8 @@ defmodule RepeatexApi.Mixfile do
   # Type `mix help deps` for examples and options
   defp deps do
     [
-      {:phoenix, github: "phoenixframework/phoenix", ref: "fa08d98d2f79c2b1a65b615d32629b6c19184a68"},
-      {:cowboy, "~> 1.0"},
+      {:phoenix, "~> 1.1"},
+      {:phoenix_html, "~> 2.3"},
       {:repeatex, github: "rcdilorenzo/repeatex"},
       {:exrm, "~> 0.14.16"}
     ]

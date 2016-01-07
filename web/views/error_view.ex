@@ -1,5 +1,5 @@
 defmodule RepeatexApi.ErrorView do
-  use RepeatexApi.View
+  use RepeatexApi.Web, :view
 
   def render("404.html", _assigns) do
     "Page not found - 404"
