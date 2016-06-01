@@ -5,5 +5,3 @@ erl_crash.dump
 *.ez
 node_modules/
 elm-stuff/
-priv/static/
-web/static/vendor/main.js
