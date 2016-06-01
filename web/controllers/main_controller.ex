@@ -1,17 +1,7 @@
 defmodule RepeatexApi.MainController do
-  use Phoenix.Controller
+  use RepeatexApi.Web, :controller
 
-  def api(conn, %{"description" => description}) do
-    json conn, Repeatex.parse description
-  end
-
-  def show(conn, _) do
+  def index(conn, _params) do
     render conn, "index.html"
-  end
-end
-
-defimpl Poison.Encoder, for: Repeatex.Repeat do
-  def encode(map, _) do
-    map |> Map.from_struct |> Poison.encode!
   end
 end

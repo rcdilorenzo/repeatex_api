@@ -1,7 +1,7 @@
 <div class="white-block">
   <div class="page-wrap">
     <nav>
-      <a ng-click="goToDemo()">Demo</a>
+      <a href="#demo">Demo</a>
       <a href="https://github.com/rcdilorenzo/repeatex">GitHub</a>
     </nav>
     <br>
@@ -24,12 +24,5 @@
   </div>
 </div>
 <div class="white-block" >
-  <div class="page-wrap" id="demo">
-    <h2>Try it!</h2>
-    <input class="large" type="text" ng-model="description" placeholder="on wednesday every week" ng-model-options="{debounce: 300}" ng-change="updateOutput()"/>
-    <br>
-    <i>Is the text above not parsing correctly? Please <a ng-href="https://github.com/rcdilorenzo/repeatex/issues/new?title={{issueTitle}}&body={{issueBody}}">click here</a> to report this as an issue.</i>
-    <br>
-    <pre>{{ output | json }}</pre>
-  </div>
+  <div class="page-wrap" id="demo"></div>
 </div>

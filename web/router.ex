@@ -1,14 +1,27 @@
 defmodule RepeatexApi.Router do
-  use Phoenix.Router
+  use RepeatexApi.Web, :router
+
+  pipeline :browser do
+    plug :accepts, ["html"]
+    plug :fetch_session
+    plug :fetch_flash
+    plug :protect_from_forgery
+    plug :put_secure_browser_headers
+  end
 
   pipeline :api do
-    plug :accepts, ~w(json)
+    plug :accepts, ["json"]
   end
 
   scope "/", RepeatexApi do
+    pipe_through :browser # Use the default browser stack
+
+    get "/", MainController, :index
+  end
+
+  scope "/api", RepeatexApi do
     pipe_through :api
 
-    get "/", MainController, :show
-    get "/api", MainController, :api
+    get "/", ApiController, :parse
   end
 end

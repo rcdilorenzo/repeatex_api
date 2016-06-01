@@ -1,16 +1,24 @@
 defmodule RepeatexApi.Endpoint do
   use Phoenix.Endpoint, otp_app: :repeatex_api
 
+  # Serve at "/" the static files from "priv/static" directory.
+  #
+  # You should set gzip to true if you are running phoenix.digest
+  # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :repeatex_api
+    at: "/", from: :repeatex_api, gzip: false,
+    only: ~w(css fonts images js favicon.ico robots.txt)
 
-  plug Plug.Logger
-
-  # Code reloading will only work if the :code_reloader key of
-  # the :phoenix application is set to true in your config file.
+  # Code reloading can be explicitly enabled under the
+  # :code_reloader configuration of your endpoint.
   if code_reloading? do
+    socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
+    plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
   end
+
+  plug Plug.RequestId
+  plug Plug.Logger
 
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
@@ -23,8 +31,7 @@ defmodule RepeatexApi.Endpoint do
   plug Plug.Session,
     store: :cookie,
     key: "_repeatex_api_key",
-    signing_salt: "WxpqzGPC",
-    encryption_salt: "WZVeOosX"
+    signing_salt: "hMxMg1Sz"
 
   plug RepeatexApi.Router
 end

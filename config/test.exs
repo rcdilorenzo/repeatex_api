@@ -1,7 +1,7 @@
 use Mix.Config
 
 config :repeatex_api, RepeatexApi.Endpoint,
-  http: [port: System.get_env("PORT") || 4001]
+  http: [port: 4001],
+  server: false
 
-# Enables code reloading for test
-config :phoenix, :code_reloader, true
+config :logger, level: :warn

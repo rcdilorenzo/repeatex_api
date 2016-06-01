@@ -1,34 +1,13 @@
 use Mix.Config
 
-# ## SSL Support
-#
-# To get SSL working, you will need to set:
-#
-#     https: [port: 443,
-#             keyfile: System.get_env("SOME_APP_SSL_KEY_PATH"),
-#             certfile: System.get_env("SOME_APP_SSL_CERT_PATH")]
-#
-# Where those two env variables point to a file on
-# disk for the key and cert.
-
 config :repeatex_api, RepeatexApi.Endpoint,
-  url: [host: "example.com"],
-  http: [port: System.get_env("PORT") || 80],
-  server: true,
-  secret_key_base: "Xzo0DPDPJL2XoMRZVj5SD+Ad5U9cqvk9bqZ2uBBG/YPqCKJXh3X1QOPVGyI/Z7y5"
+  http: [port: 5000],
+  url: [host: "repeatex.christiandilorenzo.com", port: 80],
+  cache_static_manifest: "priv/static/manifest.json"
 
-config :logger,
-  level: :info
+config :logger, level: :info
 
-# ## Using releases
-#
-# If you are doing OTP releases, you need to instruct Phoenix
-# to start the server for all endpoints:
-#
-#     config :phoenix, :serve_endpoints, true
-#
-# Alternatively, you can configure exactly which server to
-# start per endpoint:
-#
-#     config :repeatex_api, RepeatexApi.Endpoint, server: true
-#
+config :phoenix, :serve_endpoints, true
+config :repeatex_api, RepeatexApi.Endpoint, root: "."
+
+import_config "prod.secret.exs"
