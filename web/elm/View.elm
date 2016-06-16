@@ -27,19 +27,20 @@ view model =
           , placeholder "on wednesday every week"
           , onInput Update ] []
       , br [] []
+      , i []
+          [ text "Is the text above not parsing correctly? Please "
+          , a [ href "https://github.com/rcdilorenzo/repeatex/issues/new" ] [ text "click here" ]
+          , text " to report this as an issue." ]
+      , br [] []
       , h3 [] [ text "Data Structure" ]
       , parsed model
+      , h3 [] [ text "Formatted" ]
+      , pre [] [ text (if String.length(model.formatted) == 0 then "None" else model.formatted) ]
       , h3 [] [ text "Generated Dates" ]
       , table [ class "table--calendar" ]
           [ thead [] [ th [] [], th [] [] ]
           , calendarRows model monthTuples
           ]
-      , h3 [] [ text "Formatted" ]
-      , pre [] [ text model.formatted ]
-      , i []
-          [ text "Is the text above not parsing correctly? Please "
-          , a [ href "#" ] [ text "click here" ]
-          , text " to report this as an issue." ]
       ]
 
 

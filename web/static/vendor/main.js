@@ -10293,6 +10293,31 @@ var _user$project$View$view = function (model) {
 				_elm_lang$core$Native_List.fromArray(
 					[])),
 				A2(
+				_elm_lang$html$Html$i,
+				_elm_lang$core$Native_List.fromArray(
+					[]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text('Is the text above not parsing correctly? Please '),
+						A2(
+						_elm_lang$html$Html$a,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$href('https://github.com/rcdilorenzo/repeatex/issues/new')
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html$text('click here')
+							])),
+						_elm_lang$html$Html$text(' to report this as an issue.')
+					])),
+				A2(
+				_elm_lang$html$Html$br,
+				_elm_lang$core$Native_List.fromArray(
+					[]),
+				_elm_lang$core$Native_List.fromArray(
+					[])),
+				A2(
 				_elm_lang$html$Html$h3,
 				_elm_lang$core$Native_List.fromArray(
 					[]),
@@ -10301,6 +10326,25 @@ var _user$project$View$view = function (model) {
 						_elm_lang$html$Html$text('Data Structure')
 					])),
 				_user$project$View$parsed(model),
+				A2(
+				_elm_lang$html$Html$h3,
+				_elm_lang$core$Native_List.fromArray(
+					[]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text('Formatted')
+					])),
+				A2(
+				_elm_lang$html$Html$pre,
+				_elm_lang$core$Native_List.fromArray(
+					[]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text(
+						_elm_lang$core$Native_Utils.eq(
+							_elm_lang$core$String$length(model.formatted),
+							0) ? 'None' : model.formatted)
+					])),
 				A2(
 				_elm_lang$html$Html$h3,
 				_elm_lang$core$Native_List.fromArray(
@@ -10337,41 +10381,6 @@ var _user$project$View$view = function (model) {
 									[]))
 							])),
 						A2(_user$project$View$calendarRows, model, monthTuples)
-					])),
-				A2(
-				_elm_lang$html$Html$h3,
-				_elm_lang$core$Native_List.fromArray(
-					[]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html$text('Formatted')
-					])),
-				A2(
-				_elm_lang$html$Html$pre,
-				_elm_lang$core$Native_List.fromArray(
-					[]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html$text(model.formatted)
-					])),
-				A2(
-				_elm_lang$html$Html$i,
-				_elm_lang$core$Native_List.fromArray(
-					[]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html$text('Is the text above not parsing correctly? Please '),
-						A2(
-						_elm_lang$html$Html$a,
-						_elm_lang$core$Native_List.fromArray(
-							[
-								_elm_lang$html$Html_Attributes$href('#')
-							]),
-						_elm_lang$core$Native_List.fromArray(
-							[
-								_elm_lang$html$Html$text('click here')
-							])),
-						_elm_lang$html$Html$text(' to report this as an issue.')
 					]))
 			]));
 };
