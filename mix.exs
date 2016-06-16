@@ -14,7 +14,7 @@ defmodule RepeatexApi.Mixfile do
 
   def application do
     [mod: {RepeatexApi, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext, :repeatex]]
+     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext, :repeatex, :cors_plug, :mix]]
   end
 
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
@@ -27,6 +27,7 @@ defmodule RepeatexApi.Mixfile do
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},
      {:exrm, "~> 1.0.5"},
+     {:cors_plug, "~> 1.1"},
      {:repeatex, github: "rcdilorenzo/repeatex"}]
   end
 end

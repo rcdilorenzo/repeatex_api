@@ -1,14 +1,17 @@
 module Decoder exposing (..)
 
+import Date exposing (Date, fromString)
 import Model exposing (..)
 import Json.Decode as Json
 import Json.Decode exposing (..)
 
 decodeResponse : Json.Decoder Model
 decodeResponse =
-  object2 Model
+  object4 Model
     ("formatted" := string)
     ("parsed" := decodeParsed)
+    ("dates" := list date)
+    ("current" := float)
 
 
 decodeParsed : Json.Decoder Repeatex
@@ -41,3 +44,8 @@ decodeAsListOfStrings days =
 decodeAsListOfInts : DaysInts -> Json.Decoder RepeatexDays
 decodeAsListOfInts days =
   Json.succeed (RepeatexNumbers days)
+
+
+date : Decoder Date
+date =
+    customDecoder string fromString

@@ -5,19 +5,15 @@ import Maybe exposing ( Maybe(..) )
 import Task
 import Dict
 import Http
+import Time
 
 import Html exposing (..)
-import Html.Attributes exposing (..)
-import Html.Events exposing (onInput)
 
 import Model exposing (..)
-import Encoder exposing (format)
+import View exposing (..)
+import Actions exposing (..)
 import Decoder
 
-type Action
-  = Update String
-  | ApiSuccess Model
-  | ApiFailure Http.Error
 
 main =
   Html.program
@@ -30,7 +26,11 @@ main =
 
 init : (Model, Cmd Action)
 init =
-  ( Model "" (Repeatex "daily" 1 (RepeatexList [])), Cmd.none )
+  let
+      repeatex = Repeatex "daily" 1 (RepeatexList [])
+      task = Time.now
+  in
+      ( Model "" repeatex [] 0, Task.perform (\_ -> NoAction) TimeLoaded task )
 
 
 update : Action -> Model -> (Model, Cmd Action)
@@ -42,29 +42,14 @@ update action model =
     ApiSuccess newModel ->
       ( newModel, Cmd.none )
 
+    ApiFailure _ ->
+      init
+
+    TimeLoaded time ->
+      ( {model | current = time}, Cmd.none )
+
     _ ->
       ( model, Cmd.none )
-
-
-view : Model -> Html Action
-view model =
-  div []
-    [ h2 [] [ text "Try it!" ]
-    , input
-        [ class "large"
-        , type' "text"
-        , placeholder "on wednesday every week"
-        , onInput Update ] []
-    , br [] []
-    , h3 [] [ text "Data Structure" ]
-    , pre [] [ text (format model.repeats) ]
-    , h3 [] [ text "Formatted" ]
-    , pre [] [ text model.formatted ]
-    , i []
-        [ text "Is the text above not parsing correctly? Please "
-        , a [ href "#" ] [ text "click here" ]
-        , text " to report this as an issue." ]
-    ]
 
 
 subscriptions : Model -> Sub Action

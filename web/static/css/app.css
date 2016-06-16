@@ -4,6 +4,10 @@ html, body {
   font-family: 'PT Sans', sans-serif;
 }
 
+body {
+  min-width: 500px;
+}
+
 h1 {
   font-size: 28pt;
 }
@@ -121,6 +125,48 @@ pre {
   border-radius: 5px;
   text-align: left;
   font-size: 12pt;
+}
+
+/* Calendar */
+
+.table--calendar {
+  width: 100%;
+}
+
+.calendar {
+  background: #F4F4F4;
+}
+
+.calendar__header h1 {
+  font-size: 15pt;
+  padding-top: 10px;
+  margin-bottom: 8px;
+  color: RGB(109 82, 136);
+}
+
+.calendar__content {
+  height: 210px;
+}
+
+.calendar__cell, .calendar__day {
+  width: 35px;
+  line-height: 35px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.calendar__cell--outside {
+  color: #D0D0D0;
+}
+
+.calendar__days {
+  background: RGB(109, 82, 136);
+  color: white;
+}
+
+.calendar__cell--selected:not(.calendar__cell--outside) {
+  background: RGB(109, 82, 136);
+  color: white;
 }
 
 

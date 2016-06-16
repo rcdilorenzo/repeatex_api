@@ -33,5 +33,7 @@ defmodule RepeatexApi.Endpoint do
     key: "_repeatex_api_key",
     signing_salt: "hMxMg1Sz"
 
+  plug CORSPlug, origin: ["*"]
+
   plug RepeatexApi.Router
 end
