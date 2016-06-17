@@ -27,5 +27,7 @@
     </footer>
 
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <script src="https://use.typekit.net/oew2yoo.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
   </body>
 </html>

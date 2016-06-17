@@ -289,7 +289,7 @@
 html, body {
   margin: 0;
   background: RGB(109, 82, 136);
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'pt-sans', 'Arial', sans-serif;
 }
 
 body {
@@ -358,7 +358,7 @@ nav a:hover {
 /* Quote */
 .quote {
   z-index: 1;
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'pt-sans', 'Arial', sans-serif;
   text-align: center;
 }
 
