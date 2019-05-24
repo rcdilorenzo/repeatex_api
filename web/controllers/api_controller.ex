@@ -1,7 +1,16 @@
 defmodule RepeatexApi.ApiController do
   use RepeatexApi.Web, :controller
 
+  def parse(conn, %{"value" => value, "date" => raw_date}) when is_binary(value) do
+    _parse(conn, value, parsed_date(raw_date))
+  end
+
   def parse(conn, %{"value" => value}) when is_binary(value) do
+    date = :erlang.universaltime() |> Tuple.to_list |> Enum.at(0)
+    _parse(conn, value, date)
+  end
+
+  defp _parse(conn, value, date) do
     parsed = Repeatex.parse(value)
     formatted = case parsed do
       nil -> ""
@@ -10,19 +19,22 @@ defmodule RepeatexApi.ApiController do
     json conn, %{
       parsed: parsed,
       formatted: formatted,
-      current: current_date,
-      dates: dates_for_next_two_months(parsed)}
+      current: current_date(),
+      dates: dates_for_next_two_months(parsed, date)}
   end
 
-  defp dates_for_next_two_months(nil), do: []
-  defp dates_for_next_two_months(parsed) do
-    {today, _} = :erlang.universaltime
-    final_date = :edate.shift(today, 3, :month) |> :edate.end_of_month
-    dates_until(parsed, today, final_date, [date_to_string(today)])
+  defp parsed_date(raw_date) do
+    raw_date |> String.split("-") |> Enum.map(&String.to_integer/1) |> List.to_tuple
   end
 
-  defp dates_until(parsed, date, final_date, dates \\ []) do
-    next = {year, month, day} = Repeatex.next_date(parsed, date)
+  defp dates_for_next_two_months(nil, _date), do: []
+  defp dates_for_next_two_months(parsed, date) do
+    final_date = :edate.shift(date, 3, :month) |> :edate.end_of_month
+    dates_until(parsed, date, final_date, [date_to_string(date)])
+  end
+
+  defp dates_until(parsed, date, final_date, dates) do
+    next = Repeatex.next_date(parsed, date)
     cond do
       length(dates) > 120 ->
         dates

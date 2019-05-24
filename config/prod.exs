@@ -2,7 +2,7 @@ use Mix.Config
 
 config :repeatex_api, RepeatexApi.Endpoint,
   http: [port: 5000],
-  url: [host: "repeatex.christiandilorenzo.com", port: 80],
+  url: [host: "repeatex.rcdilorenzo.io", port: 80],
   cache_static_manifest: "priv/static/manifest.json"
 
 config :logger, level: :info

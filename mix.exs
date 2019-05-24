@@ -26,7 +26,7 @@ defmodule RepeatexApi.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},
-     {:exrm, "~> 1.0.5"},
+     {:exrm, "~> 1.0.8"},
      {:cors_plug, "~> 1.1"},
      {:repeatex, github: "rcdilorenzo/repeatex"}]
   end
